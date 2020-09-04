@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+#products {
+	display: table;
+}
+
+#products div {
+	float: left;
+	width: 25%;
+	height: 330px;
+}
