@@ -1,12 +1,267 @@
 @charset "utf-8";
 /* CSS Document */
 
-#products {
+/* General */
+* {
+	font-family: Helvetica, Arial, sans-serif;
+	outline: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-size: 14px;
+	color: #888;
+}
+
+header, footer {
+	background-color: #1369a5;
+	color: #fff;
+	padding: 60px 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 3px 0 10px;
+}
+
+h1 {
+	font-size: 44px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+section {
+	display: table;
+	width: 75%;
+	margin: 0 auto 60px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+p {
+	line-height: 150%;
+}
+
+input {
+	border-radius: 4px;
+	border: 1px solid #888;
+	font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+	width: calc(100% - 10px);
+	padding: 10px 5px;
+}
+
+input[type="submit"] {
+	padding: 15px 20px;
+	cursor: pointer;
+	background-color: #004a7e;
+	color: #fff;
+	border: 0;
+}
+input[type="submit"]:hover {
+	background-color: #0064aa;
+}
+
+label span {
+	font-size: 11px;
+	color: #bbb;
+}
+
+/* Buttons*/
+.button-md,
+.button-sm {
+	display: block;
+	background-color: #fff;
+	color: #888;
+	border-radius: 4px;
+	text-align: center;
+	border: 0;
+}
+
+.button-md:hover,
+.button-sm:hover {
+	background-color: #888;
+	color: #fff;
+	text-decoration: none;
+}
+
+.button-md {
+	font-size: 16px;
+	padding: 11px 40px;
+}
+
+.button-sm {
+	font-size: 16px;
+	padding: 8px 20px;
+}
+
+/* Columns */
+.col-25, .col-40, .col-60 {
+	display: table;
+	float: left;
+	margin: 0 2%;
+}
+
+.col-25 {
+	width: 21%;
+	/* Makes width 25% with the margin from above */
+}
+
+.col-40 {
+	width: 36%;
+	/* Makes width 40% with the margin from above */
+}
+
+.col-60 {
+	width: 56%;
+	/* Makes width 60% with the margin from above */
+}
+
+/* Header */
+header {
+	margin-bottom: 60px;
+}
+
+header div * {
+	text-align: center;
+}
+
+header div h1,
+header div h4 {
+	color: #fff000
+}
+
+header div h1 {
+	margin: 0 0 40px 0;
+}
+
+header div h4 {
+	margin: 0;
+	font-weight: normal;
+}
+
+header div h6 {
+	margin: 0 0 60px 0;
+	font-weight: normal;
+}
+
+header nav {
+	display: table;
+	margin: auto
+}
+
+header nav ul {
+	display: inline-block;
+}
+
+header nav ul li {
+	float: left;
+	list-style-type: none;
+	margin: 0 10px;
+}
+
+header nav ul li .button-md {
+	width: 130px;
+}
+
+/* Form */
+#form-section #form-text h4 {
+	font-weight: normal;
+	margin-bottom: 40px;
+}
+
+#form-section #form input {
+	margin-top: 5px;
+}
+
+#form-section #form #form-submit {
+	margin-top: 20px;
+	text-align: right;
+}
+
+#form-section #form #form-submit input#send-form {
+	width: 100%;
+}
+
+/* Products */
+#product-section #products-title-line {
+	border-top: 2px solid #888;
+	margin: 0 2%;
+}
+
+#product-section #products-title {
+	margin-bottom: 50px;
+}
+
+#product-section #products-title h4 {
+	text-align: center;
+	display: table;
+	margin: -16px auto 0;
+	background-color: #fff;
+	padding: 0 20px;
+}
+
+#product-section #products {
 	display: table;
 }
 
-#products div {
-	float: left;
-	width: 25%;
-	height: 330px;
+#product-section #products > div {
+	margin-bottom: 60px;
+}
+
+#product-section #products div div {
+	text-align: center;
+}
+
+#product-section #products div h5 {
+	margin-bottom: 0;
+}
+
+#product-section #products div .button-sm {
+	display: block;
+    background-color: #62cf45;
+    color: #fff;
+    margin-top: 10px;
+}
+
+#product-section #products div .button-sm:hover {
+	background-color: #72e154;
+}
+
+#product-section #more-products a {
+	display: table;
+	margin: auto;
+	background-color: #004a7e;
+	color: #fff;
+}
+
+#product-section #more-products a:hover {
+	background-color: #0064aa;
+	cursor: pointer;
+}
+
+/* Footer */
+footer div * {
+	text-align: center;
 }
