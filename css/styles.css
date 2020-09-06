@@ -1,22 +1,24 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* General */
+/* GENERAL */
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	outline: none;
 }
 
 html, body {
-	width: 100%;
 	height: 100%;
+	width: 100%;
 	margin: 0;
+	min-width: 325px;
 	font-size: 14px;
 	color: #888;
 }
 
 header, footer {
-	background-color: #1369a5;
+	background: url(css-images/trapezoid.svg) no-repeat;
+	background-size: 100% 100%;
 	color: #fff;
 	padding: 60px 20px;
 }
@@ -49,6 +51,7 @@ section {
 
 a {
 	text-decoration: none;
+	color: #00d2ff;
 }
 
 a:hover {
@@ -59,10 +62,22 @@ p {
 	line-height: 150%;
 }
 
+form span {
+	font-size: 11px;
+	color: #bbb;
+}
+
+fieldset {
+	border: 0;
+    padding: 0;
+    margin: 0;
+}
+
 input {
 	border-radius: 4px;
 	border: 1px solid #888;
 	font-size: 14px;
+	margin-top: 5px;
 }
 
 input[type="text"],
@@ -82,13 +97,28 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: #0064aa;
 }
+/* GENERAL [END] */
 
-label span {
-	font-size: 11px;
-	color: #bbb;
+/* PAGE TITLES */
+.products-title {
+	margin-bottom: 50px;
 }
 
-/* Buttons*/
+.products-title .products-title-line {
+	border-top: 2px solid #888;
+	margin: 0 2%;
+}
+
+.products-title h4 {
+	text-align: center;
+	display: table;
+	margin: -16px auto 0;
+	background-color: #fff;
+	padding: 0 20px;
+}
+/* PAGE TITLES [END] */
+
+/* BUTTONS */
 .button-md,
 .button-sm {
 	display: block;
@@ -112,12 +142,13 @@ label span {
 }
 
 .button-sm {
-	font-size: 16px;
+	font-size: 18px;
 	padding: 8px 20px;
 }
+/* BUTTONS [END] */
 
-/* Columns */
-.col-25, .col-40, .col-60 {
+/* COLUMNS */
+.col-25, .col-40, .col-50, .col-60 {
 	display: table;
 	float: left;
 	margin: 0 2%;
@@ -133,12 +164,30 @@ label span {
 	/* Makes width 40% with the margin from above */
 }
 
+.col-50 {
+	width: 46%;
+	/* Makes width 50% with the margin from above */
+}
+
 .col-60 {
 	width: 56%;
 	/* Makes width 60% with the margin from above */
 }
+/* COLUMNS [END]*/
 
-/* Header */
+/* ALERT */
+.alert-text {
+	color: #ff0000;
+	margin: 2px;
+	font-size: 11px;
+}
+
+.alert-input {
+	border: 1px solid #ff0000;
+}
+/* ALERT [END] */
+
+/* HEADER */
 header {
 	margin-bottom: 60px;
 }
@@ -162,17 +211,18 @@ header div h4 {
 }
 
 header div h6 {
-	margin: 0 0 60px 0;
+	margin: 0 0 40px 0;
 	font-weight: normal;
 }
 
 header nav {
 	display: table;
-	margin: auto
+	margin: 0 auto 80px;
 }
 
 header nav ul {
 	display: inline-block;
+	padding: 0;
 }
 
 header nav ul li {
@@ -183,43 +233,28 @@ header nav ul li {
 
 header nav ul li .button-md {
 	width: 130px;
+	filter: drop-shadow(2px 2px 2px #888);
 }
+/* HEADER [END] */
 
-/* Form */
+/* FORM */
 #form-section #form-text h4 {
 	font-weight: normal;
 	margin-bottom: 40px;
 }
 
-#form-section #form input {
-	margin-top: 5px;
+#form-section .form-submit {
+	margin-top: 30px;
 }
 
-#form-section #form #form-submit {
-	margin-top: 20px;
-	text-align: right;
-}
-
-#form-section #form #form-submit input#send-form {
+#form-section .form-submit .send-form {
 	width: 100%;
 }
+/* FORM [END] */
 
-/* Products */
-#product-section #products-title-line {
-	border-top: 2px solid #888;
-	margin: 0 2%;
-}
-
-#product-section #products-title {
-	margin-bottom: 50px;
-}
-
-#product-section #products-title h4 {
-	text-align: center;
-	display: table;
-	margin: -16px auto 0;
-	background-color: #fff;
-	padding: 0 20px;
+/* PRODUCTS */
+#product-section {
+	padding-top: 40px;
 }
 
 #product-section #products {
@@ -230,8 +265,9 @@ header nav ul li .button-md {
 	margin-bottom: 60px;
 }
 
-#product-section #products div div {
+#product-section #products div div.image-container {
 	text-align: center;
+	margin-bottom: 5px;
 }
 
 #product-section #products div h5 {
@@ -260,8 +296,149 @@ header nav ul li .button-md {
 	background-color: #0064aa;
 	cursor: pointer;
 }
+/* PRODUCTS [END] */
 
-/* Footer */
-footer div * {
+/* NEWSLETTER */
+#newsletter-section #newsletter-form h6 {
+	text-align: center;
+	font-weight: normal;
+}
+
+#newsletter-section #newsletter-form .form-submit {
+	margin-top: 30px;
 	text-align: center;
 }
+
+#newsletter-section #newsletter-form .form-submit input {
+	margin-top: 40px;
+	width: 300px;
+	font-size: 18px;
+}
+/* NEWSLETTER [END] */
+
+/* FOOTER */
+footer {
+	display: table;
+	width: calc(100% - 40px);
+	transform: scale(1, -1); 
+}
+
+footer div {
+	margin: 30px 0 100px;
+}
+
+footer div p {
+	text-align: center;
+	transform: scale(1, -1);
+}
+
+
+/* EMAIL SENT (from "user-data-sent.html" and "newsletter-data-sentl.html") */
+#email-sent-section * {
+	text-align: center;
+}
+
+#email-sent-section h5 {
+	margin-top: 20px;
+}
+
+#email-sent-footer {
+	background: transparent;
+	color: #888;
+}
+
+#email-sent-footer div {
+	border-bottom: 1px solid #eee;
+    width: 75%;
+	margin: auto
+}
+
+#email-sent-footer div p {
+	margin: 60px 0;
+}
+/* EMAIL SENT [END] */
+
+/* HELLO (from email.html)*/
+h4, h6 {
+	font-weight: normal;
+}
+
+h6 {
+	line-height:150%;
+}
+
+#product-section #products.email-products > div:nth-child(n+3):nth-child(-n+8) {
+	display: none;
+}
+/* HELLO [END] */
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 984px) {
+/* 984px Header */
+header nav,
+header nav ul {
+	width: 100%;
+}
+
+header nav ul li {
+    width: calc(50% - 20px);
+	margin-bottom: 20px;
+}
+
+header nav ul li a.button-md {
+    width: calc(100% - 80px);
+}
+/* 984px Header [END]*/
+
+}
+
+
+@media screen and (max-width: 910px) {
+/* 910px Columns */
+.col-25, .col-40, .col-50, .col-60 {
+	float: none;
+	width: 96%;
+}
+/* 910px Columns [END] */
+
+/* 910px Products */
+#product-section #products {
+	width: 100%;
+}
+
+#product-section #products div div.image-container,
+#product-section #products div div.info-container {
+    float: left;
+}
+
+#product-section #products div div.image-container {
+	width: 28%;
+	padding: 0 1%;
+	/* Makes width 30% with the padding */
+}
+
+#product-section #products div div.info-container {
+	width: 68%;
+	padding: 0 1%;
+	/* Makes width 70% with the padding */
+}
+/* 910px Products [END] */
+	
+}
+
+@media screen and (max-width: 630px) {
+#product-section #products div div.image-container,
+#product-section #products div div.info-container {
+	width: 100%;
+}
+}
+
+@media screen and (max-width: 525px) {
+/* 525px Header */
+header nav ul li {
+    width: calc(100% - 20px);
+}
+/* 525px Header [END] */
+
+}
+/* RESPONSIVENESS [END] */

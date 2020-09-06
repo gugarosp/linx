@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Desafio Linx</title>
+<title>Produtos especiais para você</title>
 <script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 </head>
@@ -11,7 +11,7 @@
 
 <main>
 
-	<!-- Page top -->
+	<!-- PAGE top -->
 	<header>
 	
 		<!-- Top text -->
@@ -27,16 +27,16 @@
 			<ul>
 				<li><a class="button-md" href="https://www.linx.com.br/" target="_blank">Conheça a Linx</a></li>
 				<li><a class="button-md" href="https://www.google.com/search?q=aprenda+a+ser+desenvolvedor+frontend&oq=aprenda+a+ser+desenvolvedor+frontend&aqs=chrome..69i57j0l7.13954j0j4&sourceid=chrome&ie=UTF-8" target="_blank">Ajude o algorítimo</a></li>
-				<li><a class="button-md" href="#products">Seus produtos</a></li>
+				<li><a class="button-md" href="#product-section">Seus produtos</a></li>
 				<li><a class="button-md" href="#">Compartilhe</a></li>
 			</ul>
 		</nav>
 		<!-- Navigation [END] -->
 		
 	</header>
-	<!-- Page top [END]-->
+	<!-- PAGE top [END]-->
 	
-	<!-- Form Section -->
+	<!-- USER FORM Section -->
 	<section id="form-section">
 		
 		<!-- Form text --> 
@@ -48,42 +48,52 @@
 		</div>
 		<!-- Form text [END]--> 
 		
-		<!-- Form --> 
-		<div id="form" class="col-40">
-			<form name="page-form" method="post" action="">
-				<label for="seu-nome">Seu Nome:</label>
+		<!-- User form --> 
+		<div class="col-40">
+			<form name="user-form" method="post" action="user-data-sent.html" onSubmit="userFormValidation();">
+				<label for="user-nome">Seu Nome:</label> <span id="alert-user-name" class="alert-text"></span>
 				<br>
-				<input type="text" name="seu-nome" id="seu-nome" required>
-				<br>
-				<br>
-				<label for="seu-email">E-mail:</label>
-				<br>
-				<input type="email" name="seu-email" id="seu-email" required>
+				<input type="text" name="user-name" id="user-name" maxlength="256">
 				<br>
 				<br>
-				<label for="seu-cpf">CPF <span>(apenas números):<span></label>
+				<label for="user-email">E-mail:</label> <span id="alert-user-email" class="alert-text"></span>
 				<br>
-				<input type="text" name="seu-cpf" id="seu-cpf" required>
+				<input type="text" name="user-email" id="user-email" maxlength="256">
 				<br>
 				<br>
-				<input type="radio" name="radio" id="gender-man" value="masculino" required><label for="gender-man">Masculino</label>
-				<input type="radio" name="radio" id="gender-woman" value="feminino" required><label for="gender-woman">Feminino</label><br>
-<div id="form-submit">
-					<input type="submit" name="send-form" id="send-form" onClick="formValidation();" value="Enviar">
+				<label for="user-cpf">CPF:</label>
+				<span id="alert-user-cpf" class="alert-text"></span>
+				<br>
+				<span>(apenas números)</span>
+				<br>
+				<input type="text" name="user-cpf" id="user-cpf" maxlength="11">
+				<br>
+				<br>
+				<input type="radio" name="user-gender" id="gender-man" value="masculino">
+				<label for="gender-man">Masculino</label>
+				<input type="radio" name="user-gender" id="gender-woman" value="feminino">
+				<label for="gender-woman">Feminino</label>
+				<span id="alert-user-gender" class="alert-text"></span>
+				<br>
+				<div class="form-submit">
+					<input type="submit" name="send-form" class="send-form" value="Enviar">
 				</div>
 			</form>
 		</div>
-		<!-- Form [END]--> 
+		<!-- User form [END]--> 
 		
 	</section>
-	<!-- Form Section [END]-->
+	<!-- USER FORM Section [END]-->
 	
-	<!-- Product Section -->
+	<!-- PRODUCT Section -->
 	<section id="product-section">
-		<div id="products-title">
-			<div id="products-title-line"></div>
+	
+		<!-- Products title -->
+		<div class="products-title">
+			<div class="products-title-line"></div>
 			<h4>Sua seção especial</h4>
 		</div>
+		<!-- Products title [END] -->
 	
 		<!-- Div where the products are placed via javascript -->
 		<div id="products">
@@ -91,12 +101,53 @@
 		
 		<!-- Javascript event "onClick" calls the function "showProducts()" each time the button is clicked, adding more products to the page -->
 		<div id="more-products">
-			<a class="button-sm" onClick="showProducts();">Ainda mais Produtos Aqui</a>
+			<a class="button-sm" onClick="showProducts();">Ainda mais produtos aqui</a>
 		</div>
 	</section>
-	<!-- Product Section [END] -->
+	<!-- PRODUCT Section [END] -->
 	
-	<!-- Page bottom -->
+	<!-- NEWSLETTER Section -->
+	<section id="newsletter-section">
+		
+		<!-- Newsletter title -->
+		<div class="products-title">
+			<div class="products-title-line"></div>
+			<h4>Compartilhe a novidade</h4>
+		</div>
+		<!-- Newsletter title [END] -->
+		
+		<!-- Newsletter form -->
+		<div>
+			<form id="newsletter-form" method="post" action="user-data-sent.html" onSubmit="newsletterFormValidation();">
+				<h6>
+					Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!
+				</h6>
+			
+				<div>
+					<div class="col-50">
+						<label for="nome-amigo">Nome do seu amigo::</label>
+						<br>
+						<input type="text" name="friend-name" id="friend-name" maxlength="256">
+						<p id="alert-friend-name" class="alert-text">&nbsp;</p>
+					</div>
+					<div class="col-50">
+						<label for="email-amigo">E-mail do seu amigo:</label>
+						<br>
+						<input type="text" name="friend-email" id="friend-email" maxlength="256">
+						<p id="alert-friend-email" class="alert-text">&nbsp;</p>
+					</div>
+					<div class="form-submit">
+						<input type="submit" name="send-form" class="send-form" id="newsletter-send-form" value="Enviar agora">
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- Newsletter form [END] -->
+		
+	</section>
+	<!-- NEWSLETTER Section [END] -->
+	
+	<!-- PAGE bottom -->
 	<footer>
 		<div>
 			<p>
@@ -104,9 +155,9 @@
 				Linx Impulse<br>
 				2019
 			</p>
-		<div>
+		</div>
 	</footer>
-	<!-- Page bottom [END] -->
+	<!-- PAGE bottom [END] -->
 	
 </main>
 
