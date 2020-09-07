@@ -23,7 +23,6 @@ function showProducts () {
 	}).then(function(data) {
 		// Get the total of items of each Json page, which seems to be always 8, but I chose to get the array lenght because the Json number of products may be changed in the future from 8 to another number
 		totalItems = data.products.length;
-		alert(totalItems);
 
 		// Get the element where the products will be shown
 		var products = document.getElementById("products");
@@ -193,13 +192,14 @@ function userFormValidation() {
 		var changeToIntegerUserCpf = parseInt(getUserCpf);
 		var integerUserCpf = Number.isInteger(changeToIntegerUserCpf);
 		var totalNumberCpf = getUserCpf.length;
-		if (integerUserCpf == false || totalNumberCpf !== 11) {
-			document.getElementById("user-cpf").classList.add("alert-input");
-			document.getElementById("alert-user-cpf").innerHTML = cpfValidationWarning;
-		} else {
+		if (integerUserCpf == true && totalNumberCpf == 11) {
 			document.getElementById("user-cpf").classList.remove("alert-input");
 			document.getElementById("alert-user-cpf").innerHTML = "";
 			checkUserCpf = true;
+		} else {
+			document.getElementById("user-cpf").classList.add("alert-input");
+			document.getElementById("alert-user-cpf").innerHTML = cpfValidationWarning;
+			checkUserCpf = false;
 		}
 	}
 	
