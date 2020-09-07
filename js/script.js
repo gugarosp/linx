@@ -144,12 +144,12 @@ function userFormValidation() {
 	}
 
 	
-	// Check if user fields are empty
+	// Warning Messages
 	var emptyFieldWarning = "Este campo precisa ser preenchido";
 	var emailValidationWarning = "Este campo precisa ter um e-mail válido";
 	var cpfValidationWarning = "Este campo precisa conter 11 números";
 	
-	
+	// Check if user name field is empty
 	if (getUserName == "") {
 		document.getElementById("user-name").classList.add("alert-input");
 		document.getElementById("alert-user-name").innerHTML = emptyFieldWarning;
@@ -160,6 +160,7 @@ function userFormValidation() {
 		checkUserName = true;
 	}
 	
+	// Check if user email field is empty
 	if (getUserEmail == "") {
 		document.getElementById("user-email").classList.add("alert-input");
 		document.getElementById("alert-user-email").innerHTML = emptyFieldWarning;
@@ -180,29 +181,34 @@ function userFormValidation() {
 		
 	}
 	
+	
+	// Check if CPF field is empty
 	if (getUserCpf == "") {
 		document.getElementById("user-cpf").classList.add("alert-input");
 		document.getElementById("alert-user-cpf").innerHTML = emptyFieldWarning;
 		checkUserCpf = false;
 	} else {
-		document.getElementById("user-cpf").classList.remove("alert-input");
-		document.getElementById("alert-user-cpf").innerHTML = "";
 		
-		// Check if the value is an integer and has 11 numbers (which is the total of numbers of a CPF)
+		// Eliminates letters from cpf input
 		var changeToIntegerUserCpf = parseInt(getUserCpf);
-		var integerUserCpf = Number.isInteger(changeToIntegerUserCpf);
-		var totalNumberCpf = getUserCpf.length;
-		if (integerUserCpf == true && totalNumberCpf == 11) {
+		
+		// Gets the total of number in the cpf input
+		var totalUserCpfNumbers = getUserCpf.length;
+		
+		// Checks if what was typed is equal to cpf transformed into integer and if the total of numbers typed were 11, which is the total of numbers of a CPF
+		if ((getUserCpf == changeToIntegerUserCpf) && (totalUserCpfNumbers == 11)) {
 			document.getElementById("user-cpf").classList.remove("alert-input");
 			document.getElementById("alert-user-cpf").innerHTML = "";
 			checkUserCpf = true;
 		} else {
 			document.getElementById("user-cpf").classList.add("alert-input");
 			document.getElementById("alert-user-cpf").innerHTML = cpfValidationWarning;
-			checkUserCpf = false;
+			checkUserCpf = false;	
 		}
+	
 	}
 	
+	// Check if gender field is empty
 	if (getUserGender == undefined) {
 		document.getElementById("alert-user-gender").innerHTML = "Escolha uma opção";
 		checkUserGender = false;
