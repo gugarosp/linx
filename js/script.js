@@ -23,6 +23,7 @@ function showProducts () {
 	}).then(function(data) {
 		// Get the total of items of each Json page, which seems to be always 8, but I chose to get the array lenght because the Json number of products may be changed in the future from 8 to another number
 		totalItems = data.products.length;
+		alert(totalItems);
 
 		// Get the element where the products will be shown
 		var products = document.getElementById("products");
