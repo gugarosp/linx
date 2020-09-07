@@ -5,6 +5,17 @@
 <title>Produtos especiais para você</title>
 <script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+<!-- Favicons. Copied from Linx website :D -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192"  href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://www.linx.com.br/app/themes/linx/webpack/dist/images/favicons/manifest.json">
+
+<!-- Javascript -->
+<script type="text/javascript" src="js/script.js"></script>
+
 </head>
 
 <body>
@@ -25,10 +36,20 @@
 		<!-- Navigation -->
 		<nav>
 			<ul>
-				<li><a class="button-md" href="https://www.linx.com.br/" target="_blank">Conheça a Linx</a></li>
-				<li><a class="button-md" href="https://www.google.com/search?q=aprenda+a+ser+desenvolvedor+frontend&oq=aprenda+a+ser+desenvolvedor+frontend&aqs=chrome..69i57j0l7.13954j0j4&sourceid=chrome&ie=UTF-8" target="_blank">Ajude o algorítimo</a></li>
-				<li><a class="button-md" href="#product-section">Seus produtos</a></li>
-				<li><a class="button-md" href="#">Compartilhe</a></li>
+				<li>
+					<a class="button-md" href="https://www.linx.com.br/" target="_blank">Conheça a Linx</a>
+				</li>
+				<li>
+					<a class="button-md" href="https://www.google.com/search?q=aprenda+a+ser+desenvolvedor+frontend&oq=aprenda+a+ser+desenvolvedor+frontend&aqs=chrome..69i57j0l7.13954j0j4&sourceid=chrome&ie=UTF-8" target="_blank">Ajude o algorítimo</a>
+				</li>
+				<li>
+					<a class="button-md" href="#product-section">Seus produtos</a>
+				</li>
+				<li>
+					<!-- The chosen social network was Facebook -->
+					<!-- If you run this locally, Facebook will give you an error page -->
+					<a class="button-md" onClick="shareButton();">Compartilhe</a>
+				</li>
 			</ul>
 		</nav>
 		<!-- Navigation [END] -->
@@ -96,12 +117,11 @@
 		<!-- Products title [END] -->
 	
 		<!-- Div where the products are placed via javascript -->
-		<div id="products">
-		</div>
+		<div id="products"></div>
 		
 		<!-- Javascript event "onClick" calls the function "showProducts()" each time the button is clicked, adding more products to the page -->
 		<div id="more-products">
-			<a class="button-sm" onClick="showProducts();">Ainda mais produtos aqui</a>
+			<a id="more-products-button" class="button-sm" onClick="showProducts();">Ainda mais produtos aqui</a>
 		</div>
 	</section>
 	<!-- PRODUCT Section [END] -->
@@ -118,7 +138,7 @@
 		
 		<!-- Newsletter form -->
 		<div>
-			<form id="newsletter-form" method="post" action="user-data-sent.html" onSubmit="newsletterFormValidation();">
+			<form id="newsletter-form" method="post" action="newsletter-data-sent.html" onSubmit="newsletterFormValidation();">
 				<h6>
 					Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!
 				</h6>

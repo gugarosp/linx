@@ -52,6 +52,7 @@ section {
 a {
 	text-decoration: none;
 	color: #00d2ff;
+	cursor: pointer;
 }
 
 a:hover {
@@ -261,6 +262,13 @@ header nav ul li .button-md {
 	display: table;
 }
 
+#product-section #products .product-page-division {
+	display: table;
+	width: 100%;
+	float: left;
+	margin: 0;
+}
+
 #product-section #products > div {
 	margin-bottom: 60px;
 }
@@ -358,7 +366,7 @@ footer div p {
 }
 /* EMAIL SENT [END] */
 
-/* HELLO (from email.html)*/
+/* USER EMAIL (from email.html)*/
 h4, h6 {
 	font-weight: normal;
 }
@@ -367,10 +375,18 @@ h6 {
 	line-height:150%;
 }
 
-#product-section #products.email-products > div:nth-child(n+3):nth-child(-n+8) {
+#hello-section {
+	margin: 0 auto 10px;
+}
+
+#product-section #products.email-products > div {
 	display: none;
 }
-/* HELLO [END] */
+#product-section #products.email-products > div:nth-child(2),
+#product-section #products.email-products > div:nth-child(3) {
+	display: table;
+}
+/* USER EMAIL [END] */
 
 /* RESPONSIVENESS */
 @media screen and (max-width: 984px) {

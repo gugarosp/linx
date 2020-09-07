@@ -4,6 +4,9 @@
 // JSON LOADING AND PAGE PRODUCT FILLING WITH DATA
 //////////////////////////////////////////////////
 
+// Json is not loaded yet
+var jsonIsLoaded = false;
+
 // Json page starts with 0
 var page = 0;
 
@@ -23,6 +26,12 @@ function showProducts () {
 
 		// Get the element where the products will be shown
 		var products = document.getElementById("products");
+		
+		// Adds an anchor div for each group of product
+		var productDivision = document.createElement("div");
+		products.appendChild(productDivision);
+		productDivision.setAttribute("id", "page" + page);
+		productDivision.classList.add("product-page-division");
 
 		// Shows all products with their data from json file
 		var i;
@@ -56,11 +65,8 @@ function showProducts () {
 			productInfo.appendChild(productBuy);
 			// Adds a class to the buy button
 			productBuy.classList.add("button-sm");
-			// Adds a link to the buy button
-			productBuy.setAttribute("href", "https://www.pontofrio.com.br/tablets/?Filtro=C2031&nid=111225");
 			
-			
-			// Inserts the data from Json on a more understandable variable
+			// Inserts the data from Json on a more understandable variables
 			var productImageData = "<img src='http:" + data.products[i].image + "'/>";
 			var productNameData = data.products[i].name;
 			var productDescriptionData = data.products[i].description;
@@ -73,7 +79,6 @@ function showProducts () {
 				var getProductInstallmentValue = String(data.products[i].installments.value);
 				var convertedProductInstallmentValue = getProductInstallmentValue.replace(".", ",");
 				var productInstallmentCountValueData = "ou " + data.products[i].installments.count + "x de R$ " + convertedProductInstallmentValue + "0";
-				
 			}
 			var productBuyData = "Comprar";
 			
@@ -85,9 +90,29 @@ function showProducts () {
 			productPrice.innerHTML = productPriceData;
 			productInstallmentCountValue.innerHTML = productInstallmentCountValueData;
 			productBuy.innerHTML = productBuyData;
+			// Adds a link to the buy button (This data is not in the Json file, so I put a dummy link instead).
+			productBuy.setAttribute("href", "https://www.pontofrio.com.br/tablets/?Filtro=C2031&nid=111225");
 			
 			
 		}
+		
+		// Mozilla Firefox issue
+		// There is an issue on Mozilla Firefox that when the user clicks on the "more products" button, the page stays on where it is, difficulting the user of seeing the loaded products. These codes below adds and "href" to the button only on Firefox, so when the user clicks, the browser goes the anchor points I put on the code "<div id="page1">", "<div id="page2">", "<div id="page3">", etc. That why there is a div with no content before each group of products.
+
+		// Firefox is the only browser that returns nothing when "vendor" is called in the Navigator object, making it unique amongst the other brosers. Also, the "page" variable can't be "1" because it would start already in the products when the users first enters the page.
+		browser = window.navigator;
+		if (browser.vendor == "" && page != 1) {
+			// It's Mozzile Firefox
+			function goToAnchor(anchorLocation){
+				location.href = "#" + anchorLocation;
+			}
+			goToAnchor("page" + (page));
+		}
+		// Mozilla Firefox issue [END]
+		
+		// Confirms that Json is loaded
+		jsonIsLoaded = true;
+		
 	})
 	
 }
@@ -144,7 +169,7 @@ function userFormValidation() {
 		document.getElementById("alert-user-email").innerHTML = "";
 		
 		// Check if email is valid
-		if ((getUserEmail.indexOf('@') > -1) && (getUserEmail.indexOf('.') > -1)) {
+		if ((getUserEmail.indexOf('@') > -1) && (getUserEmail.indexOf('.') > -1) && (getUserEmail != "@.")) {
 			document.getElementById("user-email").classList.remove("alert-input");
 			checkUserEmail = true;
 		} else {
@@ -231,7 +256,7 @@ function newsletterFormValidation() {
 		document.getElementById("alert-friend-email").innerHTML = "&nbsp;";
 		
 		// Check if email is valid
-		if ((getFriendEmail.indexOf('@') > -1) && (getFriendEmail.indexOf('.') > -1)) {
+		if ((getFriendEmail.indexOf('@') > -1) && (getFriendEmail.indexOf('.') > -1) && getFriendEmail != "@.") {
 			document.getElementById("friend-email").classList.remove("alert-input");
 			checkFriendEmail = true;
 		} else {
@@ -252,4 +277,18 @@ function newsletterFormValidation() {
 
 // -----------------------------------------------
 // NEWSLETTER FORM VALIDATION [END]
+//////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////
+// ADDS THE CURRENT URL TO SHARE BUTTON
+//////////////////////////////////////////////////
+function shareButton () {
+	currentUrl = window.location.href;
+	window.open("https://www.facebook.com/sharer/sharer.php?u=" + currentUrl);
+}
+// -----------------------------------------------
+// ADDS THE CURRENT URL TO SHARE BUTTON [END]
 //////////////////////////////////////////////////
